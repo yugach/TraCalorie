@@ -268,6 +268,9 @@ const App = (function (ItemCtrl, UICtrl) {
         // Update item event
         document.querySelector(UISelectors.updateBtn).addEventListener('click', itemUpdateSubmit);
 
+        // Back button event
+        document.querySelector(UISelectors.backBtn).addEventListener('click', UICtrl.clearEditState);
+
     };
 
     // Add item submit
@@ -330,10 +333,10 @@ const App = (function (ItemCtrl, UICtrl) {
         const input = UICtrl.getItemInput();
 
         // Update item
-        const updateItem = ItemCtrl.updateItem(input.name, input.calories);
+        const updatedItem = ItemCtrl.updateItem(input.name, input.calories);
 
         // Update UI
-        UICtrl.updateListItem(updateItem);
+        UICtrl.updateListItem(updatedItem);
 
         // Get total calories
         const totalCalories = ItemCtrl.getTotalCalories();
